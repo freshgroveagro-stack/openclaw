@@ -1,0 +1,20 @@
+[variables]
+NODE_VERSION = "20"
+
+[phases.setup]
+nixPkgs = ["nodejs_20"]
+
+[phases.install]
+cmds = [
+  "corepack enable",
+  "pnpm install"
+]
+
+[phases.build]
+cmds = [
+  "pnpm prisma generate",
+  "pnpm build"
+]
+
+[start]
+cmd = "pnpm start"
